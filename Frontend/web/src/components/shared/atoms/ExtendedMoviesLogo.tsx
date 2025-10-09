@@ -4,7 +4,7 @@ import logo from '../../../assets/brand/brand.svg';
 
 const ExtendedMoviesLogo: React.FC = () => {
     return (
-        <img src={logo} alt="Extended Movies Logo" />
+        <img className='w-30' src={logo} alt="Extended Movies Logo" />
     )
 }
 
