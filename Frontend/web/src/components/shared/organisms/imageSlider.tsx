@@ -18,7 +18,7 @@ const ImageSlider: React.FC = () => {
             setIsMobile(window.innerWidth < 1000);
         };
 
-        // Verificar tamaño inicial
+        // Verificar tamaño inicial de la pantalla
         checkScreenSize();
 
         // Escuchar cambios de tamaño
@@ -29,7 +29,7 @@ const ImageSlider: React.FC = () => {
         };
     }, []);
 
-    // Crear array de imágenes condicionalmente
+    // Crear array de imágenes (<1000 = mobile >1000 = Desktop)
     const images = isMobile ? [
         {
             original: bannerChilloutMobile,
