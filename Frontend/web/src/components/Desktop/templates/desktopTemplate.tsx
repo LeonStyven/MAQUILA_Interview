@@ -6,6 +6,10 @@ import ImageBarImage from '../../../assets/banners/topbar-sharestory-desktop.web
 import PromotionBadget from "../../shared/atoms/PromotionBadget";
 import NewItemBadget from "../../shared/atoms/NewItemBadget";
 import ProductCarousel from "../../shared/atoms/ProductCarousel";
+import ProductDescription from "../../shared/atoms/productDescription";
+import ProductSizes from "../../shared/atoms/ProductSizes";
+
+
 
 const DesktopTemplate: React.FC = () => {
     const navbarRef = useRef<HTMLElement>(null);
@@ -42,6 +46,8 @@ const DesktopTemplate: React.FC = () => {
             <PromotionBadget amount={20}/>
             <NewItemBadget/>
             <ProductCarousel/>
+            <ProductDescription/>
+            <ProductSizes/>
 
         </>
     );
