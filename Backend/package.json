@@ -1,0 +1,25 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "This is a server to conect Maquila API and MongoDB",
+  "homepage": "https://github.com/LeonStyven/MAQUILA_Interview#readme",
+  "bugs": {
+    "url": "https://github.com/LeonStyven/MAQUILA_Interview/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeonStyven/MAQUILA_Interview.git"
+  },
+  "license": "ISC",
+  "author": "Leon Styven",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mongodb": "^6.20.0"
+  }
+}
