@@ -1,10 +1,17 @@
 import React, { useEffect, useRef } from "react";
 import Navbar from "../organisms/navbar";
 import ImageSlider from "../../shared/organisms/imageSlider";
+import ImageBar from "../../shared/molecules/imageBar";
+import ImageBarImage from '../../../assets/banners/topbar-sharestory-desktop.webp';
+import PromotionBadget from "../../shared/atoms/PromotionBadget";
+import NewItemBadget from "../../shared/atoms/NewItemBadget";
+import ProductCarousel from "../../shared/atoms/ProductCarousel";
 
 const DesktopTemplate: React.FC = () => {
     const navbarRef = useRef<HTMLElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
+
+    const imageBar = ImageBarImage
 
     useEffect(() => {
         const updateContentPosition = () => {
@@ -23,7 +30,7 @@ const DesktopTemplate: React.FC = () => {
         return () => {
             window.removeEventListener('resize', updateContentPosition);
         };
-    }, []);
+    }, []); 
 
     return (
         <>
@@ -31,6 +38,11 @@ const DesktopTemplate: React.FC = () => {
             <div ref={contentRef} className="w-full">
                 <ImageSlider/>
             </div>
+            <ImageBar image={imageBar}/>
+            <PromotionBadget amount={20}/>
+            <NewItemBadget/>
+            <ProductCarousel/>
+
         </>
     );
 };
