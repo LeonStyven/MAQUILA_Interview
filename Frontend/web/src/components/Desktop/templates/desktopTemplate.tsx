@@ -8,6 +8,7 @@ import NewItemBadget from "../../shared/atoms/NewItemBadget";
 import ProductCarousel from "../../shared/atoms/ProductCarousel";
 import ProductDescription from "../../shared/atoms/productDescription";
 import ProductSizes from "../../shared/atoms/ProductSizes";
+import ShopButton from "../../shared/atoms/ShopButton";
 
 
 
@@ -48,6 +49,7 @@ const DesktopTemplate: React.FC = () => {
             <ProductCarousel/>
             <ProductDescription/>
             <ProductSizes/>
+            <ShopButton/>
 
         </>
     );
