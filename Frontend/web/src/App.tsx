@@ -1,11 +1,11 @@
 import './App.css'
-import Navbar from './components/Desktop/templates/navbar'
+import DesktopTemplate from './components/Desktop/templates/desktopTemplate'
 
 function App() {
 
   return (
     <>
-      <Navbar />
+      <DesktopTemplate/>
     </>
   )
 }

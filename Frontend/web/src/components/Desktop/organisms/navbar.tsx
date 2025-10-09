@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import ImageBar from '../../shared/molecules/imageBar';
 import topbarImage from '../../../assets/banners/topbar-grinch-desktop.webp';
 import ExtendedMoviesLogo from '../../shared/atoms/ExtendedMoviesLogo';
-import NavbarLinks from '../organisms/NavbarLinks';
-import NavbarOptions from '../organisms/NavbarOptions';
+import NavbarLinks from '../molecules/NavbarLinks';
+import NavbarOptions from '../molecules/NavbarOptions';
 
-const Navbar: React.FC = () => {
+const Navbar = forwardRef<HTMLElement>((props, ref) => {
 
     const imageBar = topbarImage;
 
 
     return (
-        <nav className="shadow-lg fixed mx-0">
+        <nav ref={ref} className="shadow-lg fixed top-0 left-0 right-0 z-50 bg-white">
 
             <ImageBar image={imageBar} />
 
@@ -30,6 +30,6 @@ const Navbar: React.FC = () => {
             </div>
         </nav>
     );
-};
+});
 
 export default Navbar;
