@@ -4,19 +4,11 @@ import pinIcon from  '../../../assets/nav/pin.svg'
 import favoriteIcon from  '../../../assets/nav/favorite.svg'
 import userIcon from  '../../../assets/nav/user.svg'
 import shoppingBagIcon from  '../../../assets/nav/shopping-bag.svg'
+import { useSideNav } from '../context/sideNavContext';
 
-type NavbarOptionsProps = {
-    showAside: boolean;
-    onToggleAside: () => void;
-  };
 
-const NavbarOptions: React.FC<NavbarOptionsProps> =({ showAside, onToggleAside }) => {
-
-    type NavbarOptionsProps = {
-        showAside: boolean;
-        onToggleAside: () => void;
-      };
-
+const NavbarOptions: React.FC =() => {
+    const { isOpen, toggle } = useSideNav();
 
     return (
         <div className="flex flex-row gap-1 font-bold w-full justify-center">
@@ -32,7 +24,12 @@ const NavbarOptions: React.FC<NavbarOptionsProps> =({ showAside, onToggleAside }
             <button className='p-2 cursor-pointer hover:bg-red-700 rounded-md'>
                 <img src={userIcon} alt="" />
             </button>
-            <button className='p-2 cursor-pointer hover:bg-red-700 rounded-md' onClick={onToggleAside}>
+            <button 
+                className={`p-2 cursor-pointer rounded-md transition-colors ${isOpen ? 'bg-red-800' : 'hover:bg-red-700'}`}
+                onClick={toggle}
+                aria-expanded={isOpen}
+                aria-controls="desktop-sidenav"
+            >
                 <img src={shoppingBagIcon} alt="Carrito de compras" />
             </button>
         </div>

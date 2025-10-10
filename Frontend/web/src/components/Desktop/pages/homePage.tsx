@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { SideNavProvider } from "../context/sideNavContext";
 import Navbar from "../organisms/navbar";
 import ImageSlider from "../../shared/organisms/imageSlider";
 import ImageBar from "../../shared/molecules/imageBar";
@@ -11,7 +12,6 @@ const HomePage : React.FC = () => {
     const navbarRef = useRef<HTMLElement>(null);
     const contentRef = useRef<HTMLDivElement>(null);
 
-    const imageBar = ImageBarImage
 
     useEffect(() => {
         const updateContentPosition = () => {
@@ -33,24 +33,16 @@ const HomePage : React.FC = () => {
     }, []); 
 
     return (
-        <>
-            
-
+        <SideNavProvider>
             <Navbar ref={navbarRef}/>
-
             <SideNav/>
-
             <div ref={contentRef} className="w-full">
                 <ImageSlider/>
             </div>
-
-            <ImageBar image={imageBar}/>
-
+            <ImageBar image={ImageBarImage}/>
             <ProductsSlider/>
-
             <Footer/>
-
-        </>
+        </SideNavProvider>
     );
 };
 
