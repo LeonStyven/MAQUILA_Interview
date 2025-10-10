@@ -3,7 +3,7 @@ import Navbar from "../organisms/navbar";
 import ImageSlider from "../../shared/organisms/imageSlider";
 import ImageBar from "../../shared/molecules/imageBar";
 import ImageBarImage from '../../../assets/banners/topbar-sharestory-desktop.webp';
-import ProductCard from "../../shared/molecules/productCard";
+import ProductsSlider from "../../shared/organisms/productsSlider";
 
 
 
@@ -40,7 +40,7 @@ const DesktopTemplate: React.FC = () => {
                 <ImageSlider/>
             </div>
             <ImageBar image={imageBar}/>
-            <ProductCard/>
+            <ProductsSlider/>
         </>
     );
 };
