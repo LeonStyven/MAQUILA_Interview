@@ -4,6 +4,7 @@ import ImageSlider from "../../shared/organisms/imageSlider";
 import ImageBar from "../../shared/molecules/imageBar";
 import ImageBarImage from '../../../assets/banners/topbar-sharestory-desktop.webp';
 import ProductsSlider from "../../shared/organisms/productsSlider";
+import WebDescription from "../../shared/atoms/webDescription";
 
 
 
@@ -41,6 +42,7 @@ const DesktopTemplate: React.FC = () => {
             </div>
             <ImageBar image={imageBar}/>
             <ProductsSlider/>
+            <WebDescription/>
         </>
     );
 };
