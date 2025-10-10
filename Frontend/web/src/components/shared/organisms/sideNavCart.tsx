@@ -1,12 +1,12 @@
 import React from "react";
 import SideNavTitle from "../molecules/sideNavTitle";
-import SideNavItem from "../molecules/sideNavItem";
+import SideNavItems from "../molecules/sideNavItems";
 
 const SideNavCart : React.FC = () => {
     return (
         <div className="container w-full h-full">
             <SideNavTitle/>
-            <SideNavItem/>
+            <SideNavItems/>
         </div>
     );
 };
