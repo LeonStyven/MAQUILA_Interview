@@ -15,9 +15,20 @@ const ProductsSlider : React.FC = () => {
                     const images = product.items?.[0]?.images?.map(img => ({
                         original: img.imageUrl
                     })) || [];
-                    
+
+                    const description = {
+                        brand: product.brand,
+                        title: product.productName,
+                        originalPrice: product.price,
+                        discountedPrice: Math.round(product.price * 0.7),
+                    }
+
                     return (
-                        <ProductCard key={index} images={images} />
+                        <ProductCard 
+                            key={index} 
+                            images={images}
+                            description={description}
+                        />
                     );
                 })}
             </div>

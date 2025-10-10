@@ -6,13 +6,20 @@ import ProductSizes from "../atoms/ProductSizes";
 import PromotionBadget from "../atoms/PromotionBadget";
 import ShopButton from "../atoms/ShopButton";
 
-interface ProductCarouselProps {
+
+interface ProductCardProps {
     images: Array<{
         original: string;
     }>;
+    description: {
+        brand: string;
+        title: string;
+        originalPrice: number;
+        discountedPrice: number
+    }
 }
 
-const ProductCard : React.FC<ProductCarouselProps> = ({images}) => {
+const ProductCard : React.FC<ProductCardProps> = ({images, description}) => {
 
     const [showOptions, setShowoptions] = useState(false);
 
@@ -30,7 +37,7 @@ const ProductCard : React.FC<ProductCarouselProps> = ({images}) => {
                 <div className={`absolute left-2 ${showOptions ? 'bottom-12' : 'bottom-2' }`}><NewItemBadget/></div>
                 {showOptions && <div className="absolute bottom-0 w-full box-border"><ProductSizes/></div>}
             </div>
-            <ProductDescription/>
+            <ProductDescription {...description}/>
             <div className={`transition-opacity duration-300 ${showOptions ? 'opacity-100' : 'opacity-0'}`}>
                 <ShopButton/>
             </div>

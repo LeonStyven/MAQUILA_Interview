@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import ImageGallery from 'react-image-gallery'
 import "react-image-gallery/styles/css/image-gallery.css";
 
-interface ProductCarouselProps {
+interface ProductCarouselImagesProps {
     images: Array<{
         original: string;
     }>;
 }
 
-const ProductCarousel : React.FC<ProductCarouselProps> = ({ images }) => {
+const ProductCarousel : React.FC<ProductCarouselImagesProps> = ({ images }) => {
     const [showNav, setShowNav] = useState(false);
 
     return(
