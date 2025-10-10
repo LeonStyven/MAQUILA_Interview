@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import ImageBar from '../../shared/molecules/imageBar';
 import topbarImage from '../../../assets/banners/topbar-grinch-desktop.webp';
 import ExtendedMoviesLogo from '../../shared/atoms/ExtendedMoviesLogo';
@@ -11,7 +11,7 @@ const Navbar = forwardRef<HTMLElement>((props, ref) => {
 
 
     return (
-        <nav ref={ref} className="shadow-lg fixed top-0 left-0 right-0 z-50 bg-white">
+        <nav ref={ref} className="shadow-lg fixed top-0 left-0 right-0 z-5 bg-white">
 
             <ImageBar image={imageBar} />
 

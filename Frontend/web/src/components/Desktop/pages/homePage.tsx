@@ -5,6 +5,7 @@ import ImageBar from "../../shared/molecules/imageBar";
 import ImageBarImage from '../../../assets/banners/topbar-sharestory-desktop.webp';
 import ProductsSlider from "../../shared/organisms/productsSlider";
 import Footer from "../organisms/footer";
+import SideNav from "../templates/sideNav";
 
 const HomePage : React.FC = () => {
     const navbarRef = useRef<HTMLElement>(null);
@@ -33,7 +34,11 @@ const HomePage : React.FC = () => {
 
     return (
         <>
+            
+
             <Navbar ref={navbarRef}/>
+
+            <SideNav/>
 
             <div ref={contentRef} className="w-full">
                 <ImageSlider/>
