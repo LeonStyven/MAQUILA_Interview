@@ -23,11 +23,16 @@ const ProductsSlider : React.FC = () => {
                         discountedPrice: Math.round(product.price * 0.7),
                     }
 
+                    const sizes = product.skuSpecifications?.[0]?.values?.map(size => ({
+                        size: size.name
+                    })) || [];
+
                     return (
                         <ProductCard 
                             key={index} 
                             images={images}
                             description={description}
+                            sizes={sizes}
                         />
                     );
                 })}

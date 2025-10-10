@@ -10,16 +10,19 @@ import ShopButton from "../atoms/ShopButton";
 interface ProductCardProps {
     images: Array<{
         original: string;
-    }>;
+    }>,
     description: {
         brand: string;
         title: string;
         originalPrice: number;
         discountedPrice: number
-    }
+    },
+    sizes: Array<{
+        size: string;
+    }>;
 }
 
-const ProductCard : React.FC<ProductCardProps> = ({images, description}) => {
+const ProductCard : React.FC<ProductCardProps> = ({images, description, sizes}) => {
 
     const [showOptions, setShowoptions] = useState(false);
 
@@ -35,7 +38,7 @@ const ProductCard : React.FC<ProductCardProps> = ({images, description}) => {
                 <div className="absolute top-2 left-2"><PromotionBadget amount={30}/></div>
                 
                 <div className={`absolute left-2 ${showOptions ? 'bottom-12' : 'bottom-2' }`}><NewItemBadget/></div>
-                {showOptions && <div className="absolute bottom-0 w-full box-border"><ProductSizes/></div>}
+                {showOptions && <div className="absolute bottom-0 w-full box-border"><ProductSizes sizes={sizes}/></div>}
             </div>
             <ProductDescription {...description}/>
             <div className={`transition-opacity duration-300 ${showOptions ? 'opacity-100' : 'opacity-0'}`}>
