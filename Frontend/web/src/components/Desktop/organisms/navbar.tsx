@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { forwardRef, useState } from 'react';
 import ImageBar from '../../shared/molecules/imageBar';
 import topbarImage from '../../../assets/banners/topbar-grinch-desktop.webp';
 import ExtendedMoviesLogo from '../../shared/atoms/ExtendedMoviesLogo';
@@ -7,13 +7,16 @@ import NavbarOptions from '../molecules/NavbarOptions';
 
 const Navbar = forwardRef<HTMLElement>((props, ref) => {
 
-    const imageBar = topbarImage;
+    const [showAsideNav, setShowAsideNav] = useState (false)
+
+
+    const toggleAside = () => setShowAsideNav(prev => !prev);
 
 
     return (
         <nav ref={ref} className="shadow-lg fixed top-0 left-0 right-0 z-5 bg-white">
 
-            <ImageBar image={imageBar} />
+            <ImageBar image={topbarImage} />
 
             <div className="mx-0 px-4 w-full">
                 <div className="flex justify-between items-center px-10 w-full">
@@ -24,7 +27,10 @@ const Navbar = forwardRef<HTMLElement>((props, ref) => {
                         <NavbarLinks/>
                     </div>
                     <div className="flex items-center space-x-4">
-                        <NavbarOptions/>
+                        <NavbarOptions
+                            showAside={showAsideNav}
+                            onToggleAside={toggleAside}
+                        />
                     </div>
                 </div>
             </div>

@@ -5,7 +5,19 @@ import favoriteIcon from  '../../../assets/nav/favorite.svg'
 import userIcon from  '../../../assets/nav/user.svg'
 import shoppingBagIcon from  '../../../assets/nav/shopping-bag.svg'
 
-const NavbarOptions: React.FC =() => {
+type NavbarOptionsProps = {
+    showAside: boolean;
+    onToggleAside: () => void;
+  };
+
+const NavbarOptions: React.FC<NavbarOptionsProps> =({ showAside, onToggleAside }) => {
+
+    type NavbarOptionsProps = {
+        showAside: boolean;
+        onToggleAside: () => void;
+      };
+
+
     return (
         <div className="flex flex-row gap-1 font-bold w-full justify-center">
             <button className='p-2 cursor-pointer hover:bg-red-700 rounded-md'>
@@ -20,8 +32,8 @@ const NavbarOptions: React.FC =() => {
             <button className='p-2 cursor-pointer hover:bg-red-700 rounded-md'>
                 <img src={userIcon} alt="" />
             </button>
-            <button className='p-2 cursor-pointer hover:bg-red-700 rounded-md'>
-                <img src={shoppingBagIcon} alt="" />
+            <button className='p-2 cursor-pointer hover:bg-red-700 rounded-md' onClick={onToggleAside}>
+                <img src={shoppingBagIcon} alt="Carrito de compras" />
             </button>
         </div>
     );
