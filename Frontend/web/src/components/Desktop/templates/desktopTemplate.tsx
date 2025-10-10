@@ -3,12 +3,8 @@ import Navbar from "../organisms/navbar";
 import ImageSlider from "../../shared/organisms/imageSlider";
 import ImageBar from "../../shared/molecules/imageBar";
 import ImageBarImage from '../../../assets/banners/topbar-sharestory-desktop.webp';
-import PromotionBadget from "../../shared/atoms/PromotionBadget";
-import NewItemBadget from "../../shared/atoms/NewItemBadget";
-import ProductCarousel from "../../shared/atoms/ProductCarousel";
-import ProductDescription from "../../shared/atoms/productDescription";
-import ProductSizes from "../../shared/atoms/ProductSizes";
-import ShopButton from "../../shared/atoms/ShopButton";
+import ProductCard from "../../shared/molecules/productCard";
+
 
 
 
@@ -44,13 +40,7 @@ const DesktopTemplate: React.FC = () => {
                 <ImageSlider/>
             </div>
             <ImageBar image={imageBar}/>
-            <PromotionBadget amount={20}/>
-            <NewItemBadget/>
-            <ProductCarousel/>
-            <ProductDescription/>
-            <ProductSizes/>
-            <ShopButton/>
-
+            <ProductCard/>
         </>
     );
 };
