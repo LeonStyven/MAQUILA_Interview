@@ -6,7 +6,13 @@ import ProductSizes from "../atoms/ProductSizes";
 import PromotionBadget from "../atoms/PromotionBadget";
 import ShopButton from "../atoms/ShopButton";
 
-const ProductCard : React.FC = () => {
+interface ProductCarouselProps {
+    images: Array<{
+        original: string;
+    }>;
+}
+
+const ProductCard : React.FC<ProductCarouselProps> = ({images}) => {
 
     const [showOptions, setShowoptions] = useState(false);
 
@@ -18,7 +24,7 @@ const ProductCard : React.FC = () => {
         
         >
             <div className="flex relative">
-                <ProductCarousel/>
+                <ProductCarousel images={images}/>
                 <div className="absolute top-2 left-2"><PromotionBadget amount={30}/></div>
                 
                 <div className={`absolute left-2 ${showOptions ? 'bottom-12' : 'bottom-2' }`}><NewItemBadget/></div>

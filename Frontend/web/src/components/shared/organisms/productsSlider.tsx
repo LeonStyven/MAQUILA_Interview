@@ -1,13 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductCard from "../molecules/productCard";
+import productsData from "../../../assets/object/search.json";
 
 const ProductsSlider : React.FC = () => {
+    const [showAll, setShowAll] = useState(false);
+    const initialProducts = productsData.slice(0, 4);
+    const remainingProducts = productsData.slice(4);
+    const displayedProducts = showAll ? productsData : initialProducts;
+
     return (
-        <div className="flex flex-row gap-2 my-8 justify-center">
-            <ProductCard/>
-            <ProductCard/>
-            <ProductCard/>
-            <ProductCard/>
+        <div className="py-8 px-40">
+            <div className="grid grid-cols-4 gap-2 justify-center">
+                {displayedProducts.map((product, index) => {
+                    const images = product.items?.[0]?.images?.map(img => ({
+                        original: img.imageUrl
+                    })) || [];
+                    
+                    return (
+                        <ProductCard key={index} images={images} />
+                    );
+                })}
+            </div>
+            
+            {remainingProducts.length > 0 && (
+                <div className="flex justify-center mt-4">
+                    <button 
+                        onClick={() => setShowAll(!showAll)}
+                        className="px-6 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors"
+                    >
+                        {showAll ? 'Ver menos' : `Ver más (${remainingProducts.length})`}
+                    </button>
+                </div>
+            )}
         </div>
         
     );
