@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { SideNavProvider } from "../context/sideNavContext";
+import { CartProvider } from "../context/cartContext"; // 👈 nuevo
 import Navbar from "../organisms/navbar";
 import ImageSlider from "../../shared/organisms/imageSlider";
 import ImageBar from "../../shared/molecules/imageBar";
@@ -9,41 +10,35 @@ import Footer from "../organisms/footer";
 import SideNav from "../templates/sideNav";
 
 const HomePage : React.FC = () => {
-    const navbarRef = useRef<HTMLElement>(null);
-    const contentRef = useRef<HTMLDivElement>(null);
+  const navbarRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    const updateContentPosition = () => {
+      if (navbarRef.current && contentRef.current) {
+        const navbarHeight = navbarRef.current.offsetHeight;
+        contentRef.current.style.paddingTop = `${navbarHeight}px`;
+      }
+    };
+    updateContentPosition();
+    window.addEventListener('resize', updateContentPosition);
+    return () => window.removeEventListener('resize', updateContentPosition);
+  }, []);
 
-    useEffect(() => {
-        const updateContentPosition = () => {
-            if (navbarRef.current && contentRef.current) {
-                const navbarHeight = navbarRef.current.offsetHeight;
-                contentRef.current.style.paddingTop = `${navbarHeight}px`;
-            }
-        };
-
-        // Actualizar posición inicial
-        updateContentPosition();
-
-        // Actualizar en resize
-        window.addEventListener('resize', updateContentPosition);
-
-        return () => {
-            window.removeEventListener('resize', updateContentPosition);
-        };
-    }, []); 
-
-    return (
-        <SideNavProvider>
-            <Navbar ref={navbarRef}/>
-            <SideNav/>
-            <div ref={contentRef} className="w-full">
-                <ImageSlider/>
-            </div>
-            <ImageBar image={ImageBarImage}/>
-            <ProductsSlider/>
-            <Footer/>
-        </SideNavProvider>
-    );
+  return (
+    <CartProvider>
+      <SideNavProvider>
+        <Navbar ref={navbarRef}/>
+        <SideNav/>
+        <div ref={contentRef} className="w-full">
+          <ImageSlider/>
+        </div>
+        <ImageBar image={ImageBarImage}/>
+        <ProductsSlider/>
+        <Footer/>
+      </SideNavProvider>
+    </CartProvider>
+  );
 };
 
-export default HomePage
+export default HomePage;
